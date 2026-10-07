@@ -41,6 +41,8 @@ int main() {
 
 # Francisco Neves
 
+O CÓDIGO ABAIXO FOI FEITO COM AI BASEADO NO CÓDIGO ACIMA, FEITO POR UM HUMANO
+
 #include <stdio.h>
 
 int main() {
@@ -85,3 +87,4 @@ int main() {
         indicador = 1;
     }
 }
+
