@@ -1,1 +1,20 @@
 
+#include <stdio.h>
+
+int main() {
+
+    int valor_sensor;
+    float temperatura_final;
+
+    printf("Indica o valor indicado pelo sensor: \n");
+    scanf("%d", &valor_sensor);
+
+    temperatura_final = (valor_sensor * 260.00) / 1023.00 - 20.00;
+
+    if (temperatura_final < -10 || temperatura_final > 190) {
+        printf("Valor fora da gama. \n");
+    }
+    else {
+        printf("A temperatura final é: %.2f \n", temperatura_final);
+    }
+}
