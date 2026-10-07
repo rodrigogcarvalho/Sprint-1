@@ -1,0 +1,33 @@
+#include <stdio.h>
+int main (void)
+    {   
+        int valor;
+        float temp;
+
+        while (1){
+        printf("Digite um valor inteiro entre 0 e 1023 para ser lido pelo sensor:\n");
+        
+        if ((scanf("%d", &valor) != 1) || (valor < 0 || valor > 1023)) {
+            printf ("Valor invalido! Tente novamente.\n");
+            while (getchar() !='\n');
+            }
+            else{
+                break;
+            }
+             }
+            
+           
+            temp = (260.00*valor)/1023-20;
+
+                 if (temp < -10 || temp> 190 ){
+                printf("O valor está fora da gama (-10ºC a 190ºC)");
+                
+                }
+                else{
+
+            printf("a temperatura lida pelo sensor é: %.2f\n", temp);
+            
+            }
+        
+        }
+    
