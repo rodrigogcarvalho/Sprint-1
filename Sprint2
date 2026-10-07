@@ -40,3 +40,48 @@ int main() {
 }
 
 # Francisco Neves
+
+#include <stdio.h>
+
+int main() {
+    float valor_sensor;
+    float temperatura_final;
+    int indicador = 0;
+
+    while (indicador == 0) {
+        printf("Indica o valor indicado pelo sensor: \n");
+
+        // 1. Valida se é um número
+        if (scanf("%f", &valor_sensor) != 1) {
+            printf("ERROR: Valor inválido. \n");
+            while (getchar() != '\n'); // Limpa o buffer se digitarem letras
+            continue;                  // Salta para a próxima iteração do while
+        }
+
+        // 2. Valida se tem casas decimais
+        if (valor_sensor != (int)valor_sensor) {
+            printf("Valor inválido: Não são permitidos números com casas decimais! \n");
+            while (getchar() != '\n'); // CORRECÇÃO: Limpa o buffer também no erro decimal
+            continue;
+        }
+
+        // 3. Valida a gama do sensor
+        if (valor_sensor < 0 || valor_sensor > 1023) {
+            printf("ERROR: Valor fora da gama. \n");
+            continue;
+        }
+
+        // 4. Se passou todas as validações, calcula a temperatura
+        temperatura_final = (valor_sensor * 260.00) / 1023.00 - 20.00;
+
+        // 5. Valida a gama da temperatura
+        if (temperatura_final < -10 || temperatura_final > 190) {
+            printf("ERROR: Valor fora da gama. \n");
+            continue;
+        }
+
+        // Sucesso
+        printf("A temperatura final é: %.2f ºC \n", temperatura_final);
+        indicador = 1;
+    }
+}
