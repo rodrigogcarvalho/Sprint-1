@@ -1,13 +1,18 @@
-# Sprint-1 
 #include <stdio.h>
-int main (void)
-    {   
-        int valor;
-        float temp;
-        printf("Digite um valor inteiro entre 0 e 1023 para ser lido pelo sensor:\n");
-        scanf("%d", &valor);
-
-        temp = (260.00*valor)/1023-20;
-
-        printf("a temperatura lida pelo sensor é: %.2lf\n", temp);
+int main(void){
+    int x;
+    float temp;
+    printf("introduzir o valor do sensor(0-1023): ");
+    if(scanf("%d", &x) !=1){
+        printf("Erro na leitura do valor do sensor\n");
+        return 1;
     }
+if (x < 0 || x > 1023){
+        printf("Valor do sensor fora do intervalo permitido (0-1023)\n");
+        return 1;
+    }
+    temp = (x * 260.0f / 1023.0f) -20.0f;
+    printf("Temperatura: %.2f °C\n", temp);
+    return 0;
+
+}
