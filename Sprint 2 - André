@@ -1,0 +1,34 @@
+# include <stdio.h>
+int main(void) {
+    int x = 0;
+    double temp;
+    int valor_sensor;
+    
+    printf("Leitura de um sensor e a sua conversão para temperatura em ºC\n");
+    while (x == 0) {
+        printf("Digite o valor do sensor entre 0 e 1023: ");
+        if (scanf("%d", &valor_sensor) !=1){
+            while(getchar() != '\n'); 
+            printf("Inválido. Por favor, digite um número inteiro entre 0 e 1023.\n");
+        }
+
+        else if (valor_sensor > 0 && valor_sensor < 1023) {
+                temp = 260.0*valor_sensor/1023.0 - 20;
+                if (temp >= -10.0 && temp <= 190.0) {
+                    printf("Valor dentro da gama.\n");
+                    x = 1;
+                }
+                else {
+                    printf("Valor fora da gama. \n");
+                }
+            }
+        else {
+            printf("Inválido. Por favor, digite um número inteiro entre 0 e 1023.\n");    
+        }
+
+    }
+    printf("A temperatura é: %.2lfºC \n", temp);
+    return 0;
+}
+
+
